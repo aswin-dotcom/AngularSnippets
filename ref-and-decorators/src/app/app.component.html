@@ -1,0 +1,33 @@
+<!-- ref varaible not using any decorators -->
+<input #ref />
+<button (click)="handleclick(ref)">Click Here</button>
+
+<!-- ref variable used to access the property of the corresponding component -->
+<app-test-1 #check></app-test-1>
+<app-test-2 *ngIf="check.hide"></app-test-2>
+
+<!-- ref variable useing view child decorators -->
+<input #inputref />
+<button (click)="getvalue()">Submit</button>
+
+<!-- ref variable using view children -->
+<input #inputrefs />
+<input #inputrefs />
+<input #inputrefs />
+<input #inputrefs />
+<button (click)="show()">show</button>
+
+<!-- ng-template -->
+
+<ng-template #mytemplate> aswin is the Angular developer </ng-template>
+<div *ngTemplateOutlet="mytemplate"></div>
+
+
+<!-- ng-container -->
+<ng-container *ngIf="toggle; else toggleoff">
+  toggle is on
+</ng-container>
+<ng-template #toggleoff> <p>Toggle Off</p></ng-template>
+
+
+
