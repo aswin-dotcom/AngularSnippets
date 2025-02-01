@@ -24,7 +24,7 @@ export class AppComponent {
     });
   }
 
-  observerer are youtube channel subscribe can subscribe to it
+  //observerer are youtube channel subscribe can subscribe to it
 
     obervable = new Observable((observer) => {
       observer.next(1);
