@@ -1,0 +1,24 @@
+<!-- basic pipe example -->
+<p>{{title | lowercase}}</p>
+
+
+<!-- chain of pipes -->
+<P>{{date | date:'longDate'|uppercase}}</P>
+
+<!-- pipe example with parameter passing -->
+<p>{{(marktaken/totalmarks)|percent : '2.2-2'}}</p>
+
+
+<!-- custom pipe creation -->
+<p>{{marktaken | pipelearn:totalmarks :2 }}</p>
+
+
+<!-- custom pipe used for filter -->
+<button (click)="filterstring='all'">ALL</button>
+<button (click)="filterstring='male'">Male</button>
+<button (click)="filterstring='female'">Female</button>
+<div *ngFor="let item of arr | filer:filterstring" style="display: flex ; justify-content: center; align-items: center; gap: 15px;">
+  <p>{{item.name}}</p>
+  <p>{{item.gender}}</p>
+
+</div>
