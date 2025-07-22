@@ -1,0 +1,7 @@
+<form [formGroup]="reactiveForm" (ngSubmit)="handlesubmit()">
+  <input [formControlName]="'firstname'" />
+  <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*requierd</small>
+  <input [formControlName]="'lastname'" />
+  <input [formControlName]="'email'" />
+  <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+</form>
