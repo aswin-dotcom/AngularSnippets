@@ -1,24 +1,48 @@
 <form [formGroup]="reactiveForm" (ngSubmit)="handlesubmit()">
   <input [formControlName]="'firstname'" />
-  <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*First name is requierd</small>
+  <small
+    *ngIf="
+      reactiveForm.get('firstname').invalid &&
+      reactiveForm.get('firstname').touched
+    "
+    >*First name is requierd</small
+  >
   <input [formControlName]="'lastname'" />
   <input [formControlName]="'email'" />
   <div formGroupName="address">
-    <input formControlName="street"  />
-    <small *ngIf="reactiveForm.get('address.street').invalid && reactiveForm.get('address.street').touched">
+    <input formControlName="street" />
+    <small
+      *ngIf="
+        reactiveForm.get('address.street').invalid &&
+        reactiveForm.get('address.street').touched
+      "
+    >
       *street name is requierd
     </small>
-    <input  formControlName="pincode" />
-    <small *ngIf="reactiveForm.get('address.pincode').invalid && reactiveForm.get('address.pincode').touched">
+    <input formControlName="pincode" />
+    <small
+      *ngIf="
+        reactiveForm.get('address.pincode').invalid &&
+        reactiveForm.get('address.pincode').touched
+      "
+    >
       *pincode is invalid
     </small>
-
-
   </div>
   <div formArrayName="skills">
-    <input type="text" placeholder="Enter Your Skill ..."
-    *ngFor="let skill of reactiveForm.get('skills')['controls'];let i = index" [formControlName]="i"/>
-
+    <div
+      *ngFor="
+        let skill of reactiveForm.get('skills')['controls'];
+        let i = index
+      "
+    >
+      <input
+        type="text"
+        placeholder="Enter Your Skill ..."
+        [formControlName]="i"
+      /><button (click)="handledele(i)">Delete</button>
+    </div>
+    <button (click)="AddFormControl()">Add</button>
   </div>
   <button type="submit">Submit</button>
 </form>

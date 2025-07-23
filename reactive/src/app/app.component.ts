@@ -24,12 +24,20 @@ export class AppComponent {
       }),
       skills:new FormArray([
         new FormControl(null,Validators.required),
-        new FormControl(null,Validators.required),
-        new FormControl(null,Validators.required)
+        // new FormControl(null,Validators.required),
+        // new FormControl(null,Validators.required)
       ])
     });
   }
   handlesubmit() {
     console.log(this.reactiveForm);
+  }
+  AddFormControl()
+  {
+     (<FormArray>this.reactiveForm.get('skills')).push(new FormControl(null , Validators.required))
+  }
+  handledele(index:number)
+  {
+    (<FormArray>this.reactiveForm.get('skills')).removeAt(index);
   }
 }
