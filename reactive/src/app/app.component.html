@@ -1,7 +1,19 @@
 <form [formGroup]="reactiveForm" (ngSubmit)="handlesubmit()">
   <input [formControlName]="'firstname'" />
-  <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*requierd</small>
+  <small *ngIf="reactiveForm.get('firstname').invalid && reactiveForm.get('firstname').touched">*First name is requierd</small>
   <input [formControlName]="'lastname'" />
   <input [formControlName]="'email'" />
-  <button type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+  <div formGroupName="address">
+    <input formControlName="street"  />
+    <small *ngIf="reactiveForm.get('address.street').invalid && reactiveForm.get('address.street').touched">
+      *street name is requierd
+    </small>
+    <input  formControlName="pincode" />
+    <small *ngIf="reactiveForm.get('address.pincode').invalid && reactiveForm.get('address.pincode').touched">
+      *pincode is invalid
+    </small>
+
+
+  </div>
+  <button type="submit" [disabled]="false">Submit</button>
 </form>

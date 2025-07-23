@@ -15,7 +15,11 @@ export class AppComponent {
     this.reactiveForm = new FormGroup({
       firstname :  new FormControl(null,Validators.required),
       lastname : new FormControl(null, Validators.required),
-      email: new FormControl(null,[Validators.required,Validators.email])
+      email: new FormControl(null,[Validators.required,Validators.email]),
+      address: new FormGroup({
+        street: new FormControl(null, [Validators.required]),
+        pincode: new FormControl(null,[Validators.required,Validators.maxLength(6)])
+      })
 
     })
   }
