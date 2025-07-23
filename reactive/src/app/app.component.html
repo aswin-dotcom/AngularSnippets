@@ -15,5 +15,10 @@
 
 
   </div>
-  <button type="submit" [disabled]="false">Submit</button>
+  <div formArrayName="skills">
+    <input type="text" placeholder="Enter Your Skill ..."
+    *ngFor="let skill of reactiveForm.get('skills')['controls'];let i = index" [formControlName]="i"/>
+
+  </div>
+  <button type="submit">Submit</button>
 </form>
