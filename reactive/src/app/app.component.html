@@ -2,11 +2,14 @@
   <input [formControlName]="'firstname'" />
   <small
     *ngIf="
-      reactiveForm.get('firstname').invalid &&
+      reactiveForm.get('firstname').errors?.['required'] &&
       reactiveForm.get('firstname').touched
     "
     >*First name is requierd</small
   >
+  <small  *ngIf="reactiveForm.get('firstname').errors?.['spaceAllowed']">
+    Space not allowed in firstname
+  </small>
   <input [formControlName]="'lastname'" />
   <input [formControlName]="'email'" />
   <div formGroupName="address">

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs';
+import { nospaceAllowed } from './Validators/noSpaceAllowed.Validator';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   reactiveForm: FormGroup;
   ngOnInit() {
     this.reactiveForm = new FormGroup({
-      firstname: new FormControl(null, Validators.required),
+      firstname: new FormControl(null, [Validators.required,nospaceAllowed]),
       lastname: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       address: new FormGroup({
