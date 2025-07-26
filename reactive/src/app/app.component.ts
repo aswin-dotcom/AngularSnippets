@@ -22,22 +22,37 @@ export class AppComponent {
           Validators.maxLength(6),
         ]),
       }),
-      skills:new FormArray([
-        new FormControl(null,Validators.required),
+      skills: new FormArray([
+        new FormControl(null, Validators.required),
         // new FormControl(null,Validators.required),
         // new FormControl(null,Validators.required)
-      ])
+      ]),
+      experience: new FormArray([]),
     });
   }
   handlesubmit() {
     console.log(this.reactiveForm);
   }
-  AddFormControl()
-  {
-     (<FormArray>this.reactiveForm.get('skills')).push(new FormControl(null , Validators.required))
+  AddFormControl() {
+    (<FormArray>this.reactiveForm.get('skills')).push(
+      new FormControl(null, Validators.required)
+    );
   }
-  handledele(index:number)
-  {
+  handledele(index: number) {
     (<FormArray>this.reactiveForm.get('skills')).removeAt(index);
+  }
+
+  addexperience() {
+    const ex = new FormGroup({
+      experience: new FormControl(null, Validators.required),
+      position: new FormControl(null, Validators.required),
+    });
+
+    (<FormArray>this.reactiveForm.get('experience')).push(ex);
+  }
+
+  handledelete(index:number)
+  {
+    (<FormArray>this.reactiveForm.get('experience')).removeAt(index);
   }
 }

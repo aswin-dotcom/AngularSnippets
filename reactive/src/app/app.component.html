@@ -43,6 +43,21 @@
       /><button (click)="handledele(i)">Delete</button>
     </div>
     <button (click)="AddFormControl()">Add</button>
+    <p>Enter your experience</p>
+    <button (click)="addexperience()">Add Experience</button>
+    <div formArrayName="experience">
+      <div
+        *ngFor="
+          let exp of reactiveForm.get('experience')['controls'];
+          let i = index
+        "
+        formGroupName="i"
+      >
+        <input formControlName="experience" />
+        <input formControlName="position" />
+        <button (click)="handledelete(i)">Delete</button>
+      </div>
+    </div>
   </div>
   <button type="submit">Submit</button>
 </form>
