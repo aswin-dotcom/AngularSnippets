@@ -30,6 +30,9 @@ export class AppComponent {
       ]),
       experience: new FormArray([]),
     });
+     this.reactiveForm.get('firstname').valueChanges.subscribe((val)=>{
+      console.log(val)
+     })
   }
   handlesubmit() {
     console.log(this.reactiveForm);
