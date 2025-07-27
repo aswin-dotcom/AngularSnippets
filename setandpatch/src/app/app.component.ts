@@ -21,11 +21,14 @@ export class AppComponent {
   }
 
   handleUsername() {
-    this.reactiveForms.setValue({
-      Firstname: this.reactiveForms.get('Firstname').value,
-      lastname:this.reactiveForms.get('lastname').value,
+    // this.reactiveForms.setValue({
+    //   Firstname: this.reactiveForms.get('Firstname').value,
+    //   lastname:this.reactiveForms.get('lastname').value,
+    //   username: this.getusername()
+    // });
+     this.reactiveForms.patchValue({
       username: this.getusername()
-    });
+     })
   }
   getusername(){
     let date =  new Date();
