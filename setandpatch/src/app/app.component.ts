@@ -36,4 +36,9 @@ export class AppComponent {
    this.user =  this.reactiveForms.get('Firstname').value.slice(0,3)+ this.reactiveForms.get('lastname').value.slice(0,3)+date.getFullYear();
    return this.user;
   }
+
+  reset()
+  {
+    this.reactiveForms.reset();
+  }
 }
