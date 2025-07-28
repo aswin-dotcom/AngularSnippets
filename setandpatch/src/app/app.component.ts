@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'setandpatch';
 
   reactiveForms: FormGroup;
-  user:string;
+  user: string;
 
   ngOnInit() {
     this.reactiveForms = new FormGroup({
@@ -26,19 +26,21 @@ export class AppComponent {
     //   lastname:this.reactiveForms.get('lastname').value,
     //   username: this.getusername()
     // });
-     this.reactiveForms.patchValue({
-      username: this.getusername()
-     })
+    this.reactiveForms.patchValue({
+      username: this.getusername(),
+    });
   }
-  getusername(){
-    let date =  new Date();
+  getusername() {
+    let date = new Date();
 
-   this.user =  this.reactiveForms.get('Firstname').value.slice(0,3)+ this.reactiveForms.get('lastname').value.slice(0,3)+date.getFullYear();
-   return this.user;
+    this.user =
+      this.reactiveForms.get('Firstname').value.slice(0, 3) +
+      this.reactiveForms.get('lastname').value.slice(0, 3) +
+      date.getFullYear();
+    return this.user;
   }
 
-  reset()
-  {
+  reset() {
     this.reactiveForms.reset();
   }
 }
