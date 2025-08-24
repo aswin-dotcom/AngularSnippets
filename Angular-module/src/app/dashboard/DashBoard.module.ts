@@ -1,28 +1,30 @@
-import { NgModule } from "@angular/core";
-import { DashboardComponent } from "./dashboard.component";
-import { CommonModule } from "@angular/common";
-import { SharedModule } from "../Shared.module";
-import { TaskComponent } from "./task/task.component";
+import { Component, NgModule } from '@angular/core';
+import { DashboardComponent } from './dashboard.component';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../Shared.module';
+import { TaskComponent } from './task/task.component';
 import { StatComponent } from './stat/stat.component';
-import { AppRoutingModule } from "../app-routing.module";
-import { RouterModule } from "@angular/router";
+import { AppRoutingModule } from '../app-routing.module';
+import { Route, RouterModule, Routes } from '@angular/router';
 // import { TaskComponent } fro./task/task.componentent';
-
+  const routes: Routes = [
+    {
+      path: 'dash',
+      component: DashboardComponent,
+      children: [
+        { path: 'task', component: TaskComponent },
+        { path: 'stat', component: StatComponent },
+      ],
+    },
+  ];
 @NgModule({
-  declarations:[
-    DashboardComponent,
-    TaskComponent,
-    StatComponent
-  ],
-  exports:[
-    DashboardComponent,
-    SharedModule
-  ],
+  declarations: [DashboardComponent, TaskComponent, StatComponent],
+  exports: [DashboardComponent, SharedModule, RouterModule],
   imports: [
     CommonModule,
     SharedModule,
     AppRoutingModule,
-    RouterModule
-]
+    RouterModule.forChild(routes),
+  ],
 })
-export class DashboardModule{}
+export class DashboardModule {}
