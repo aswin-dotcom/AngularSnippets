@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CounterserviceService } from '../counterservice.service';
 
 @Component({
   selector: 'app-loader',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './loader.component.scss'
 })
 export class LoaderComponent {
-
+   counter: CounterserviceService = inject(CounterserviceService);
+    ngOnInit() {
+      this.counter.counter('loader');
+    }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CounterserviceService } from '../../counterservice.service';
 
 @Component({
   selector: 'app-task',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.scss'
 })
 export class TaskComponent {
-
+    counter: CounterserviceService = inject(CounterserviceService);
+    ngOnInit() {
+      debugger
+      this.counter.counter('lazy loaded task component');
+    }
 }

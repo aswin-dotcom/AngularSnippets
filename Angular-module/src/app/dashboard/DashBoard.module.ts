@@ -6,10 +6,11 @@ import { TaskComponent } from './task/task.component';
 import { StatComponent } from './stat/stat.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { Route, RouterModule, Routes } from '@angular/router';
+import { CounterserviceService } from '../counterservice.service';
 // import { TaskComponent } fro./task/task.componentent';
   const routes: Routes = [
     {
-      path: 'dash',
+      path: '',
       component: DashboardComponent,
       children: [
         { path: 'task', component: TaskComponent },
@@ -23,8 +24,9 @@ import { Route, RouterModule, Routes } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     RouterModule.forChild(routes),
   ],
+  providers:[CounterserviceService]
 })
 export class DashboardModule {}
